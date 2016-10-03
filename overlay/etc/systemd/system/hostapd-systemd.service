@@ -1,0 +1,17 @@
+[Unit]
+Description=hostapd service
+Wants=network-manager.service
+After=network-manager.service
+Wants=module-init-tools.service
+After=module-init-tools.service
+ConditionPathExists=/etc/hostapd.conf
+
+[Service]
+ExecStart=/usr/sbin/hostapd /etc/hostapd.conf
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+RestartSec=5
+
+
+[Install]
+WantedBy=multi-user.target
