@@ -1,0 +1,13 @@
+[Unit]
+Description=snoopy service
+Wants=network-manager.service
+After=network-manager.service
+Wants=module-init-tools.service
+After=module-init-tools.service
+ConditionPathExists=/etc/snoopy/snoopy.cfg
+
+[Service]
+ExecStart=/var/snoopy/snoopy -config=/etc/snoopy/snoopy.cfg >> /var/log/snoopy/snoopy.log 2>&1
+
+[Install]
+WantedBy=multi-user.target
