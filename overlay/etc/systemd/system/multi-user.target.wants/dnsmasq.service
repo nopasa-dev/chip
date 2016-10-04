@@ -5,7 +5,7 @@ Description=DHCP and DNS caching server.
 After=network.target
 
 [Service]
-ExecStart=/usr/sbin/dnsmasq -k --conf-file=/etc/dnsmasq.conf
+ExecStart=/usr/sbin/dnsmasq -k --conf-file=/etc/dnsmasq.conf --log-facility=/var/log/dnsmasq.log
 ExecReload=/bin/kill -HUP $MAINPID
 Restart=on-failure
 RestartSec=5
