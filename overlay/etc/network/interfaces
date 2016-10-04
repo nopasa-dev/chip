@@ -1,3 +1,4 @@
+#keep this file to preven networkmanager taking over
   auto wlan1
   
   iface wlan1 inet static
