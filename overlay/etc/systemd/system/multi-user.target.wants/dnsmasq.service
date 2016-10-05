@@ -1,6 +1,6 @@
 [Unit]
 Description=dnsmasq
-After=wlan1.service
+After=hostapd.service
 
 [Service]
 #keep empty resolve file as it will conflict with systemd resolv

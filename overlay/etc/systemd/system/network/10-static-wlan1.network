@@ -1,0 +1,5 @@
+[Match]
+Name=wlan1
+
+[Network]
+Address=10.10.10.10/24
