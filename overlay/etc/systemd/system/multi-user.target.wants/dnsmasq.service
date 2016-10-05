@@ -1,14 +1,10 @@
-# Remember to run `systemctl daemon-reload` after creating or editing this file.
-
 [Unit]
-Description=DHCP and DNS caching server.
-After=network.target
+Description=dnsmasq
+After=wlan1.service
 
 [Service]
-ExecStart=/usr/sbin/dnsmasq -k --conf-file=/etc/dnsmasq.conf
-ExecReload=/bin/kill -HUP $MAINPID
-Restart=on-failure
-RestartSec=5
+#keep empty resolve file as it will conflict with systemd resolv
+ExecStart=/usr/sbin/dnsmasq -k -n -R --conf-file=/etc/dnsmasq.conf --resolv-file=
 
 [Install]
 WantedBy=multi-user.target

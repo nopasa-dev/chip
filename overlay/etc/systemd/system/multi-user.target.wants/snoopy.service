@@ -2,13 +2,10 @@
 Description=snoopy service
 Wants=network-manager.service
 After=network-manager.service
-ConditionPathExists=/etc/snoopy/snoopy.cfg
+ConditionPathExists=/etc/snoopy.conf
 
 [Service]
-ExecStart=/var/snoopy/snoopy -config=/etc/snoopy/snoopy.cfg >> /var/log/snoopy.log 2>&1
-ExecReload=/bin/kill -HUP $MAINPID
-Restart=on-failure
-RestartSec=5
+ExecStart=/var/snoopy/snoopy -config=/etc/snoopy.conf
 
 [Install]
 WantedBy=multi-user.target
